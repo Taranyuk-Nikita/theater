@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+    <link rel="stylesheet" href="/stylesheets/singleevent.css">
+</head>
+
+    <body>
+        <%- include('layouts/preloader') -%>
+            <%- include('layouts/header') -%>
+                <main>
+                    <div id="gallery-modal" class="modalForImg">
+                        <div class="modal_wrapper">
+                            <div class="closeModal">
+                                <span></span>
+                            </div>
+                            <img class="modal-content" id="img-show">
+                            <div id="caption"></div>
+                        </div>
+                    </div>
+                    <section class="single_event">
+                        <div class="single_event__wrapper">
+                            <div class="single_event__head">
+                                <div class="singel_event__cover">
+                                    <img src="/content/img/Афиша - Музыка - душа кино.jpeg"
+                                        alt="Постер - Музыка - душа кино" class="single_event__imgInGallery">
+                                </div>
+                                <div class="singel_event__infowrapper">
+                                    <div class="singel_event__maininfo">
+                                        <h1 class="single_event__title">Музыка – душа кино</h1>
+                                        <span class="single_event__genre">Концерт песен из отечественного кино</span>
+                                        <span class="single_event__duration">Длительность: 2 ч. 30 мин.</span>
+                                        <span class="single_event__rating">16+</span>
+                                        <ul class="singel_event__credits">
+                                            <li>Постановка и хореография – Сергей Захарин</li>
+                                            <li>Сценография и костюмы – Евгения Шутина</li>
+                                            <li>Художник по свету – Сергей Скорнецкий</li>
+                                            <li>Музыкальное оформление – Владимир Бычковский</li>
+                                            <li>Репетитор по вокалу – Ольга Луценко</li>
+                                            <li>Ассистент режиссёра – Дарья Раянова</li>
+                                        </ul>
+                                    </div>
+                                    <button class="single_event__buyticket"><a href="">Купить билет</a></button>
+                                </div>
+                            </div>
+                            <div class="single_event__body">
+                                <div class="single_event__text">
+                                    <span class="single_event__subtitle">Описание</span>
+                                    <p class="single_event__description paragraph">Необыкновенно ярким музыкальным
+                                        событием
+                                        стал
+                                        концерт студентов отделения музыкального искусства эстрады, посвященный истории
+                                        отечественного кино, который состоялся в конце апреля в актовом зале корпуса на
+                                        5-й
+                                        Железнодорожной. Исполнение «вживую», сопровождение музыкального ансамбля
+                                        подарили
+                                        зрителям
+                                        незабываемые впечатления от ощущения полного погружения в музыкальную историю
+                                        российского
+                                        кинематографа.</p>
+                                    <p class="single_event__description paragraph">Пятнадцать музыкальных номеров, кадры
+                                        известных
+                                        кинолент и интересные факты, озвученные со сцены студентами, напомнили всем
+                                        знакомые
+                                        мелодии
+                                        любимых всеми кинофильмов. Инсталляция точно передала атмосферу тех, прежних
+                                        советских
+                                        кинотеатров, где стены были оформлены афишами и можно было присесть за столиком,
+                                        разделив с
+                                        единомышленниками впечатления от премьерных показов.</p>
+                                    <p class="single_event__description paragraph">Вечер, посвященный отечественному
+                                        кино,
+                                        песням из
+                                        любимых кинофильмов открыли педагоги отделения. Благодаря их инициативе и
+                                        педагогическому
+                                        мастерству в этот вечер возможность блистать получили молодые восходящие
+                                        «звездочки»
+                                        эстрадного искусства:</p>
+                                    <ul class="single_event__description mark-list">
+                                        <li>Арина Погодина - «Журчат ручьи»</li>
+                                        <li>Татьяна Михайлова - «Лев и Брадобрей»</li>
+                                        <li>Никита Волков - «Не вещать нос, гардемарины!»</li>
+                                        <li>Виктория Сырбу - «В моей душе покоя нет»</li>
+                                        <li>Агнесса Ахумян и братья Ярослав и Владислав Филимоненко - «Чито-гврито»</li>
+                                        <li>Полина Пушкина - «Перышко»</li>
+                                        <li>Елизавета Поленовская - «Мой маленький оркестр»</li>
+                                        <li>Ян Хмыльнин - «Молитва»</li>
+                                        <li>Евгений Ильин - «Наша честь»</li>
+                                        <li>Кристина Борисенко - «Лишь ты»</li>
+                                        <li>Яна Игнатьева - «Ведьма-речка»</li>
+                                        <li>Захар Крапивин - «Песня Остапа»</li>
+                                        <li>Полина Степанова - «Песенка о морском дьяволе»</li>
+                                        <li>Анастасия Бутакова - «С любовью встретиться»</li>
+                                        <li>Оксана Дерова - «Не бойтесь жизнь переменить»</li>
+                                    </ul>
+                                    <ol class="single_event__description numeric-list">
+                                        <li>Арина Погодина - «Журчат ручьи»</li>
+                                        <li>Татьяна Михайлова - «Лев и Брадобрей»</li>
+                                        <li>Никита Волков - «Не вещать нос, гардемарины!»</li>
+                                        <li>Виктория Сырбу - «В моей душе покоя нет»</li>
+                                        <li>Агнесса Ахумян и братья Ярослав и Владислав Филимоненко - «Чито-гврито»</li>
+                                        <li>Полина Пушкина - «Перышко»</li>
+                                        <li>Елизавета Поленовская - «Мой маленький оркестр»</li>
+                                        <li>Ян Хмыльнин - «Молитва»</li>
+                                        <li>Евгений Ильин - «Наша честь»</li>
+                                        <li>Кристина Борисенко - «Лишь ты»</li>
+                                        <li>Яна Игнатьева - «Ведьма-речка»</li>
+                                        <li>Захар Крапивин - «Песня Остапа»</li>
+                                        <li>Полина Степанова - «Песенка о морском дьяволе»</li>
+                                        <li>Анастасия Бутакова - «С любовью встретиться»</li>
+                                        <li>Оксана Дерова - «Не бойтесь жизнь переменить»</li>
+                                    </ol>
+                                    <p class="single_event__description _paragraph">Все исполнители очаровывали и
+                                        покоряли
+                                        зрителей
+                                        не только своим вокальным мастерством, артистизмом, знаниями отечественного
+                                        кинематографа,
+                                        но абсолютной искренностью, воодушевленностью. Ребятам удалось с удивительной
+                                        точностью
+                                        воспроизвести настроение, тональность и историчность целой эпохи советского
+                                        кино. В
+                                        этом
+                                        им
+                                        отменно помогли их ровесники, студенты-хореографы, которые «дорисовывали» общую
+                                        картину
+                                        своими танцевальными дополнениями.</p>
+                                    <p class="single_event__description _paragraph">В завершении концертного вечера, зал
+                                        и
+                                        молодые
+                                        исполнители спели известную песню Юрия Антонова «Мечта сбывается», из кинофильма
+                                        «Берегите
+                                        женщин!».</p>
+                                    <p class="single_event__description _paragraph">О чем мечтают организаторы этого
+                                        великолепного
+                                        концерта, позже «по секрету» рассказала руководитель отделения музыкального
+                                        искусства
+                                        эстрады ИРКПО Наталья Борисовна Ларионова:</p>
+                                    <p class="single_event__description _сitation">«Наши преподаватели и студенты давно
+                                        мечтают,
+                                        чтобы
+                                        у нас появился свой собственный студенческий музыкальный театр. Каждый год во
+                                        время
+                                        подготовки к экзаменам мы показываем различные «выпускные» работы, музыкальные
+                                        постановки,
+                                        мюзиклы. У нас учатся очень много талантливых ребят, они стараются, трудятся и
+                                        мечтают о
+                                        сцене! Почти все они-готовые к самостоятельному выходу на сцену, артисты. Чтобы
+                                        принять
+                                        участие в этом концерте, был организован специальный отбор. Из 100 желающих
+                                        право на
+                                        участие
+                                        в концерте буквально отвоевали 14 студентов разных курсов. Ребятам удалось
+                                        передать
+                                        атмосферу путешествия во времени, воспроизвести легендарную музыку и стихи
+                                        выдающихся
+                                        советских авторов, передать свою гордость за отечественный кинематограф и
+                                        историю
+                                        великой
+                                        страны.»</p>
+                                    <p class="single_event__description _paragraph">Пусть сбудется все, о чем мечтают
+                                        опытные
+                                        педагоги, молодые вокалисты и благодарные зрители.</p>
+                                </div>
+                                <div class="single_event__fotogallery">
+                                    <span class="single_event__subtitle">Галерея</span>
+                                    <img src="/content/gallery/DSC_2212.jpg" alt="Проделки Ханумы - 01" id="img1id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2260.jpg" alt="Проделки Ханумы - 02" id="img2id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2300.jpg" alt="Проделки Ханумы - 03" id="img3id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2403.jpg" alt="Проделки Ханумы - 04" id="img4id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2429.jpg" alt="Проделки Ханумы - 05" id="img5id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2442.jpg" alt="Проделки Ханумы - 06" id="img6id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2493.jpg" alt="Проделки Ханумы - 07" id="img7id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2874.jpg" alt="Проделки Ханумы - 08" id="img8id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_2909.jpg" alt="Проделки Ханумы - 09" id="img9id"
+                                        class="single_event__imgInGallery">
+                                    <img src="/content/gallery/DSC_3025.jpg" alt="Проделки Ханумы - 10" id="img10id"
+                                        class="single_event__imgInGallery">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <%- include('layouts/footer') -%>
+    </body>
+    <%- include('layouts/scripts') -%>
+    <script>
+        // Get the modal
+        let modal = document.getElementById('gallery-modal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        let gallery_imgs = document.querySelectorAll('.single_event__imgInGallery');
+        let modalImg = document.getElementById("img-show");
+        let captionText = document.getElementById("caption");
+        gallery_imgs.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                captionText.innerHTML = img.alt;
+                document.body.classList.toggle('_lock');
+            })
+        })
+
+        let close_modal = document.querySelector(".closeModal");
+        console.log(close_modal);
+        close_modal.addEventListener('click', () => {
+            modal.style.display = "none";
+            document.body.classList.toggle('_lock');
+        })
+    </script>
+
+</html>

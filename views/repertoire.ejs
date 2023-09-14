@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+    <link rel="stylesheet" href="/stylesheets/gallery.css">
+</head>
+
+<body>
+    <%- include('layouts/preloader') -%>
+    <%- include('layouts/header') -%>
+        <main>
+            <section class="gallery">
+                <div class="gallery__wrapper">
+                    <div class="gallery__title">Репертуар</div>
+                    <div class="gallery__body">
+                        <div class="gallery__card">
+                            <div class="gallery__card_inner">
+                                <span class="card_title">Проделки Ханумы</span>
+                                <span class="card_description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                    Sunt nostrum id dolor architecto cum ullam, corrupti ex tempora nihil numquam, at
+                                    quisquam nam qui magnam optio aliquam animi dolores! Quae repellat fuga soluta
+                                    tempore ea.</span>
+                                <span>
+                                    <a class="card_learnmore">Подробнее</a>
+                                </span>
+                            </div>
+                            <img src="/content/img/Афиша - Музыка - душа кино.jpeg" alt="">
+                        </div>
+                        <div class="gallery__card">
+                            <div class="gallery__card_inner">
+                                <span class="card_title">Музыка - душа кино</span>
+                                <span class="card_description">Концерт песен из отечественного кино: пятнадцать
+                                    музыкальных номеров, кадры известных кинолент и интересные факты, озвученные со
+                                    сцены студентами, напомнят всем знакомые мелодии любимых всеми кинофильмов.</span>
+                                <span>
+                                    <a class="card_learnmore">Подробнее</a>
+                                </span>
+                            </div>
+                            <img src="/content/img/Афиша - Музыка - душа кино.jpeg" alt="">
+                        </div>
+                        <div class="gallery__card">
+                            <div class="gallery__card_inner">
+                                <span class="card_title">Мягкие грани твёрдого стиля</span>
+                                <span class="card_description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Blanditiis, in aut qui odio ullam modi harum facilis? Voluptatem exercitationem
+                                    inventore aut nisi libero? Necessitatibus neque itaque aliquam saepe, vel
+                                    autem.</span>
+                                <span>
+                                    <a class="card_learnmore">Подробнее</a>
+                                </span>
+                            </div>
+                            <img src="/content/img/Афиша - Музыка - душа кино.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('layouts/footer') -%>
+</body>
+
+<%- include('layouts/scripts') -%>
+
+</html>
