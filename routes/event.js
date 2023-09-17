@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const   express = require('express'),
+        router = express.Router();
 
 /* GET EVENT page. */
 router.get('/event', function(req, res, next) {

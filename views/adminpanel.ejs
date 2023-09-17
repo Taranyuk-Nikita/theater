@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEST</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <link rel="stylesheet" href="stylesheets/admin.css">
+    <script src="javascripts/admin.js"></script>
+</head>
+
+<body>
+    <!-- (A) SIDEBAR -->
+    <div id="pgside">
+        <!-- (A1) BRANDING OR USER -->
+        <div id="pguser" onclick="if(confirm('Вы действительно хотите выйти?')){logout();}">
+            <input type="hidden" name="logout" value="1">
+            <div class="txt">
+                <div id="pgusername">
+                    <%= user %>
+                </div>
+                <div id="pguseracct">Выйти</div>
+            </div>
+        </div>
+
+        <!-- (A2) MENU ITEMS -->
+        <a href="#">
+            <i class="ico">&#128197;</i>
+            <i class="txt">Расписание</i>
+        </a>
+        <a href="#">
+            <i class="ico">&#11088;</i>
+            <i class="txt">Репертуар</i>
+        </a>
+        <a href="#">
+            <i class="ico">&#127915;</i>
+            <i class="txt">Билеты</i>
+        </a>
+        <a href="#">
+            <i class="ico">&#128212;</i>
+            <i class="txt">Заявления</i>
+        </a>
+    </div>
+
+    <!-- (B) MAIN -->
+    <main id="pgmain">
+        <%- include("layouts/workspace"); %>
+    </main>
+</body>
+
+</html>

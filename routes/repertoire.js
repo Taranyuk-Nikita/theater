@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const   express = require('express'),
+        router = express.Router();
 
 /* GET repertoire page. */
 router.get('/repertoire', function(req, res, next) {

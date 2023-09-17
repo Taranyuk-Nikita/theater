@@ -3,17 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dbinit": "node database/dbinit"
   },
   "author": "Taranyuk Nikita",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "~1.9.1",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1",
+    "sqlite3": "^5.1.6",
+    "tedious": "^16.4.0"
   },
   "repository": {
     "type": "git",
@@ -21,6 +32,7 @@
   },
   "keywords": [
     "nodejs",
-    "express"
+    "express",
+    "sequelize"
   ]
 }

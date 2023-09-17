@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require("body-parser");
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -9,6 +10,8 @@ var repertoireRouter = require('./routes/repertoire');
 var aboutRouter = require('./routes/about');
 var helpRouter = require('./routes/help');
 var eventRouter = require('./routes/event');
+var signRouter = require('./routes/sign');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -27,6 +30,8 @@ app.use(repertoireRouter);
 app.use(aboutRouter);
 app.use(helpRouter);
 app.use(eventRouter);
+app.use(signRouter);
+app.use(adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
