@@ -10,7 +10,7 @@ const connectToDB = new Sequelize({
     password: process.env.SQLserver_password,
     database: process.env.SQLserver_database,
     timezone: '+08:00',
-    dialect: 'mysql',
+    dialect: process.env.SQLserver_dialect,
     dialectOptions: {
         options: {
             encrypt: process.env.SQLserver_dialectOptions_encrypt === 'true',

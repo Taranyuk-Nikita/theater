@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>УМТЭ | <%= title %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,76 +24,27 @@
                     <section class="slider">
                         <div class="slider__wrapper">
                             <div class="slider__items">
-                                <div class="slider__item">
-                                    <div class="slider__item_inner">
-                                        <span class="slider__event_title">Проделки Ханумы</span>
-                                        <span class="slider__event_description">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing
-                                            elit.
-                                            Ipsum id asperiores quas odio perspiciatis distinctio quod? Rerum adipisci
-                                            ipsum
-                                            deleniti quibusdam sequi tempora, distinctio numquam. Veritatis earum sit
-                                            animi
-                                            placeat officiis temporibus aut, illo perferendis? Eligendi voluptas quidem
-                                            voluptatem optio. Dolor quam tempora, incidunt at aspernatur suscipit
-                                            reiciendis
-                                            corrupti repellat!</span>
-                                        <span class="slider__event_info">
-                                            <span class="slider__event_dateANDrating">
+                                <!--  -->
+                                <% if (poster.length) { %>
+                                    <% poster.forEach(({poster_id, poster_datetime, event_id, event_title, event_subtitle, event_rating, event_description_tiny}) => { %>
+                                    <div class="slider__item">
+                                        <div class="slider__item_inner">
+                                            <span class="slider__event_title"><%= event_title %></span>
+                                            <span class="slider__event_description"><%= event_description_tiny %></span>
+                                            <span class="slider__event_info">
+                                                <span class="slider__event_dateANDrating">
 
-                                                <span class="slider__event_date">10 апреля 19:00</span>
-                                                <span class="slider__event_rating">16+</span>
+                                                    <span class="slider__event_date"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %> <%= poster_datetime.toLocaleTimeString('ru-RU', {hour: "numeric", minute: "numeric"}) %></span>
+                                                    <span class="slider__event_rating"><%= event_rating %>+</span>
+                                                </span>
+                                                <a class="slider__event_learnmore" href='/event/<%= event_id %>'>Подробнее</a>
                                             </span>
-                                            <a class="slider__event_learnmore">Подробнее</a>
-                                        </span>
+                                        </div>
+                                        <img src="/images/DSC06032.jpg" alt="">
                                     </div>
-                                    <img src="/images/DSC_3533.jpg" alt="">
-                                </div>
-                                <div class="slider__item">
-                                    <div class="slider__item_inner">
-                                        <span class="slider__event_title">Музыка - душа кино</span>
-                                        <span class="slider__event_description">Концерт песен из отечественного кино:
-                                            пятнадцать
-                                            музыкальных номеров, кадры известных кинолент и интересные факты, озвученные
-                                            со
-                                            сцены студентами, напомнят всем знакомые мелодии любимых всеми
-                                            кинофильмов.</span>
-                                        <span class="slider__event_info">
-                                            <span class="slider__event_dateANDrating">
-
-                                                <span class="slider__event_date">19 апреля 17:30</span>
-                                                <span class="slider__event_rating">16+</span>
-                                            </span>
-                                            <a class="slider__event_learnmore">Подробнее</a>
-                                        </span>
-                                    </div>
-                                    <img src="/images/Музыка-душа-кино.jpg" alt="">
-                                </div>
-                                <div class="slider__item">
-                                    <div class="slider__item_inner">
-                                        <span class="slider__event_title">Мягкие грани твёрдого стиля</span>
-                                        <span class="slider__event_description">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing
-                                            elit.
-                                            Ipsum id asperiores quas odio perspiciatis distinctio quod? Rerum adipisci
-                                            ipsum
-                                            deleniti quibusdam sequi tempora, distinctio numquam. Veritatis earum sit
-                                            animi
-                                            placeat officiis temporibus aut, illo perferendis? Eligendi voluptas quidem
-                                            voluptatem optio. Dolor quam tempora, incidunt at aspernatur suscipit
-                                            reiciendis
-                                            corrupti repellat!</span>
-                                        <span class="slider__event_info">
-                                            <span class="slider__event_dateANDrating">
-
-                                                <span class="slider__event_date">16 апреля 19:00</span>
-                                                <span class="slider__event_rating">16+</span>
-                                            </span>
-                                            <a class="slider__event_learnmore">Подробнее</a>
-                                        </span>
-                                    </div>
-                                    <img src="/images/DSC06032.jpg" alt="">
-                                </div>
+                                    <% }) %>
+                                <% } %>
+                                <!--  -->
                             </div>
                         </div>
                         <button class="slider__btn slider__btn_prev" href="#" role="button" data-slide="prev"></button>
@@ -104,78 +55,33 @@
                             <div class="poster__title">АФИША</div>
                             <div class="poster__body">
                                 <div class="events__wrapper">
-                                    <div class="event">
-                                        <div class="event_date">
-                                            <span class="event_day">29 марта</span>
-                                            <span class="event_time">19:00</span>
-                                        </div>
-                                        <div class="event_info">
-                                            <div class="event_cover">
-                                                <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
+                                    <!--  -->
+                                    <% if (poster.length) { %>
+                                        <% poster.forEach(({poster_id, poster_datetime, event_id, event_title, event_subtitle, event_rating, event_description_tiny}) => { %>
+                                            <div class="event">
+                                                <div class="event_date">
+                                                    <span class="event_day"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %></span>
+                                                    <span class="event_time"><%= poster_datetime.toLocaleTimeString('ru-RU', {hour: "numeric", minute: "numeric"}) %></span>
+                                                </div>
+                                                <div class="event_info">
+                                                    <div class="event_cover">
+                                                        <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
+                                                    </div>
+                                                    <div class="event_about">   
+                                                        <h3 class="event_title"><%= event_title %></h3>
+                                                        <span class="event_authors"><%= event_subtitle %></span>
+                                                        <span class="event_rating"><%= event_rating %>+</span>
+                                                        <p class="event_description"><%= event_description_tiny %></p>
+                                                        <div class="event_btns">
+                                                            <button class="event_learnmore" onclick="location.href='/event/<%= event_id %>'">Подробнее</button>
+                                                            <button class="event_learnmore" onclick="location.href='/buyticket/<%= event_id %>'">Купить билет</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="event_about">
-                                                <h3 class="event_title">Музыка - душа кино</h3>
-                                                <span class="event_authors">Режисёр: Ларионова Наталья Борисовна</span>
-                                                <span class="event_rating">16+</span>
-                                                <p class="event_description">Концерт песен из отечественного кино:
-                                                    пятнадцать
-                                                    музыкальных номеров, кадры известных кинолент и интересные факты,
-                                                    озвученные
-                                                    со сцены студентами, напомнят всем знакомые мелодии любимых всеми
-                                                    кинофильмов.
-                                                </p>
-                                                <button class="event_learnmore">Подробнее</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="event">
-                                        <div class="event_date">
-                                            <span class="event_day">29 марта</span>
-                                            <span class="event_time">19:00</span>
-                                        </div>
-                                        <div class="event_info">
-                                            <div class="event_cover">
-                                                <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
-                                            </div>
-                                            <div class="event_about">
-                                                <h3 class="event_title">Музыка - душа кино</h3>
-                                                <span class="event_authors">Режисёр: Ларионова Наталья Борисовна</span>
-                                                <span class="event_rating">16+</span>
-                                                <p class="event_description">Концерт песен из отечественного кино:
-                                                    пятнадцать
-                                                    музыкальных номеров, кадры известных кинолент и интересные факты,
-                                                    озвученные
-                                                    со сцены студентами, напомнят всем знакомые мелодии любимых всеми
-                                                    кинофильмов.
-                                                </p>
-                                                <button class="event_learnmore">Подробнее</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="event">
-                                        <div class="event_date">
-                                            <span class="event_day">29 марта</span>
-                                            <span class="event_time">19:00</span>
-                                        </div>
-                                        <div class="event_info">
-                                            <div class="event_cover">
-                                                <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
-                                            </div>
-                                            <div class="event_about">
-                                                <h3 class="event_title">Музыка - душа кино</h3>
-                                                <span class="event_authors">Режисёр: Ларионова Наталья Борисовна</span>
-                                                <span class="event_rating">16+</span>
-                                                <p class="event_description">Концерт песен из отечественного кино:
-                                                    пятнадцать
-                                                    музыкальных номеров, кадры известных кинолент и интересные факты,
-                                                    озвученные
-                                                    со сцены студентами, напомнят всем знакомые мелодии любимых всеми
-                                                    кинофильмов.
-                                                </p>
-                                                <button class="event_learnmore">Подробнее</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <% }) %>
+                                    <% } %>
+                                    <!--  -->
                                 </div>
                             </div>
                         </div>
