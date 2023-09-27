@@ -1,220 +1,70 @@
 <style>
-    .workspace__wrapper {
-        width: 100%;
-        height: 100%;
+:root {
+  --border-width: 2px;
+  --border-color: #CED4DA;
+  --border: var(--border-width) solid var(--border-color);
+}
 
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
+/* Sticky header */
+table {
+  border-collapse: separate;
+  border-spacing: var(--border-width); /* 1 */
+}
 
-        overflow: hidden;
-    }
+thead {
+  position: sticky;
+  top: var(--border-width); /* 2 */
+}
 
-    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300);
+th, td {
+  outline: var(--border); /* 3 */
+}
 
-    *,
-    *:before,
-    *:after {
-        box-sizing: border-box;
-    }
+/* Other styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  margin: 0;
+}
 
-    body {
-        background-color: #eee;
-    }
+table {
+  width: 100%;
+}
 
-    .card {
-        border-radius: 2px;
-        background-color: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    }
+th {
+  text-align: left;
+  background-color: #f1f3f5;
+}
 
-    .material-table {
-        font-family: "Roboto", 'Helvetica Neue, Helvetica, Arial';
-        min-width: 100%;
-        min-height: 324px;
-        /* position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); */
-    }
-
-    .material-table-body {
-        overflow-x: hidden;
-        overflow-y: auto;
-        height: calc(100% - 48px);
-    }
-
-    .material-table-header {
-        content: '';
-        top: 0;
-        height: 48px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-    }
-
-    table {
-        white-space: nowrap;
-        color: rgba(0, 0, 0, 0.87);
-        width: 100%;
-        font-size: 12px;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    table td,
-    table th {
-        line-height: 45px;
-    }
-
-    table th {
-        height: 0;
-        border: none;
-        padding: 0;
-        font-weight: 500;
-    }
-
-    table th div,
-    table thead tr:last-child th,
-    table td {
-        padding: 0 8px 0 24px;
-    }
-
-    table th:not(:first-child) div,
-    table td:not(:first-child) {
-        border-left: 1px solid rgba(0, 0, 0, 0.075);
-    }
-
-    table td {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-    }
-
-    table thead tr:last-child th {
-        line-height: 0;
-        opacity: 0;
-    }
-
-    table thead th div {
-        position: absolute;
-        line-height: 48px;
-        top: 0;
-    }
-
-    table tbody tr:hover {
-        cursor: pointer;
-        background-color: #EDEDF2;
-    }
+th, td {
+  padding: 3px 5px;
+}
+.workspase__control {
+    margin: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.workspace__title {
+    font-size: 3rem;
+}
+.workspase__table {
+    box-sizing: border-box;
+    margin: 1rem;
+    height: 85vh;
+    overflow-y: auto;
+    /* box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
+}
 </style>
 <div class="workspace__wrapper">
-    <div class="material-table card">
-        <div class="material-table-header"></div>
-        <div class="material-table-body">
-            <table cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>
-                            <div>Some column header</div>
-                        </th>
-                        <th>
-                            <div>Another column header</div>
-                        </th>
-                        <th>
-                            <div>Third</div>
-                        </th>
-                    </tr>
-                    <tr class="invisible">
-                        <th>
-                            Some column header
-                        </th>
-                        <th>
-                            Another column header
-                        </th>
-                        <th>
-                            Third
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>First</td>
-                        <td>First</td>
-                        <td>First</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second this has longer content and so forth</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third slightly longer</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>First</td>
-                        <td>First</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second this has longer content and so forth</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third slightly longer</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>First</td>
-                        <td>First</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second this has longer content and so forth</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third slightly longer</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>First</td>
-                        <td>First</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second this has longer content and so forth</td>
-                        <td>Third</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Second</td>
-                        <td>Third slightly longer</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="workspase__control">
+        <span class="workspace__title">Управление</span>
+        <div class="workspace_btns">
+
         </div>
+    </div>
+    <div class="workspase__table">
+        Панель управления для администратора и редактора
     </div>
 </div>

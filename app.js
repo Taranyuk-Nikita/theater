@@ -1,19 +1,22 @@
-var createError = require('http-errors');
-let express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require("body-parser");
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const favicon = require('express-favicon');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var repertoireRouter = require('./routes/repertoire');
-var aboutRouter = require('./routes/about');
-var helpRouter = require('./routes/help');
-var eventRouter = require('./routes/event');
-var signRouter = require('./routes/sign');
-var adminRouter = require('./routes/admin');
+const indexRouter = require('./routes/index');
+const repertoireRouter = require('./routes/repertoire');
+const aboutRouter = require('./routes/about');
+const helpRouter = require('./routes/help');
+const eventRouter = require('./routes/event');
+const signRouter = require('./routes/sign');
+const adminRouter = require('./routes/admin');
 
-var app = express();
+const app = express();
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +35,8 @@ app.use(helpRouter);
 app.use(eventRouter);
 app.use(signRouter);
 app.use(adminRouter);
+
+app.use(require('helmet')());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

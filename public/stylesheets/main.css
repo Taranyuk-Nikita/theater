@@ -92,10 +92,15 @@ footer {
     display: flex;
     align-items: center;
     transition: all 0.1s ease 0s;
+    z-index: 10;
 }
 
 .header__logo_icon {
     display: block;
+}
+
+.header__logo_icon img {
+    max-width: 48px;
 }
 
 .header__logo_title {
@@ -107,6 +112,10 @@ footer {
     text-transform: uppercase;
     text-wrap: balance;
     line-height: 1.5rem;
+}
+
+.header__logo_title_small {
+    display: none;
 }
 
 .header__logo:active {
@@ -178,13 +187,29 @@ footer {
 }
 
 @media (max-width: 1200px) {
+    .header__logo {
+        z-index: 10;
+    }
+
     .header__logo_icon {
         display: block;
-        z-index: 4;
+
     }
 
     .header__logo_title {
         display: none;
+    }
+    .header__logo_title_small {
+        cursor: pointer;
+        display: block;
+        padding: 0 .2rem;
+        font-size: .9rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-wrap: balance;
+        line-height: .9rem;
+        color: #FFFFFF;
+        text-align: center;
     }
 
     .menu__icon {
@@ -278,8 +303,7 @@ footer {
     }
 
     .menu__link {
-        padding: 0.5rem;
-        border-radius: 1rem;
+        padding: 0.5rem 2rem;
     }
 
     .menu__link::after {
