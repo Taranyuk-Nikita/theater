@@ -42,6 +42,26 @@ router.get('/table/:tablename', async function (req, res, next) {
           })
           .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))
         break;
+      case "Repertoire":
+        let events;
+        const addEventsInfo = async (event) => {
+          for (let i = 0; i < event.length; i++) {
+            raiting = await Models.EventRating.findOne({
+              where: { rating_id: event[i].event_rating },
+            })
+            event[i].dataValues.event_rating = raiting.rating_title
+            event[i].dataValues.event_rating_desc = raiting.rating_description
+          }
+          return event
+        }
+
+        await Models.Events.findAll()
+          .then((result) => addEventsInfo(result))
+          .then((events) => {
+            res.json(events)
+          })
+          .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))
+        break;
       default:
         break;
     }
