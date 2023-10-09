@@ -3,7 +3,7 @@ const   express = require('express'),
 
 /* GET home page. */
 router.get('/help', function(req, res, next) {
-  res.render('help', { title: 'Express' });
+  res.render('help', { title: 'Помощь' });
 });
 
 module.exports = router;

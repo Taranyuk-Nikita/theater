@@ -3,7 +3,7 @@ const   express = require('express'),
 
 /* GET home page. */
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Express' });
+  res.render('about', { title: 'О театре' });
 });
 
 module.exports = router;

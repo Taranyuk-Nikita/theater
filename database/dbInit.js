@@ -12,7 +12,7 @@ const series_types = [
 ]
 const status_types = [
     { title: 'В продаже', description: 'Билет доступен для покупки' },
-    { title: 'Куплен', description: 'Билет куплен (кем и нача см. таб. "Билеты")' },
+    { title: 'Куплен', description: 'Билет куплен (кем и на что см. таб. "Билеты")' },
     { title: 'Использован', description: 'Билет проверен контролёром' },
     { title: 'Возврат', description: 'Владелец оформил возврат билета' },
 ]

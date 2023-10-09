@@ -1,0 +1,88 @@
+.buyticket {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+.buyticket__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.buyticket__title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #911D26;
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-wrap: wrap;
+}
+
+.buyticket__title::after,
+.buyticket__title::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #911D26;
+    position: relative;
+}
+
+.buyticket__title::before {
+    margin-right: 1rem;
+    margin-left: 1.5rem;
+}
+
+.buyticket__title::after {
+    margin-right: 1.5rem;
+    margin-left: 1rem;
+}
+
+.buyticket__body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    max-width: 100%;
+}
+
+.order_info {
+    width: clamp(240px, 75vw, 480px);
+}
+
+.order_placement {
+    width: clamp(240px, 75vw, 720px);
+}
+
+@media (max-width: 1024px) {
+    .buyticket__title::before {
+        display: none;
+    }
+
+    .buyticket__title::after {
+        display: none;
+    }
+}
+
+@media (max-height: 640px) or (max-width: 640px) {
+    .buyticket__title {
+        font-size: 1.5rem;
+    }
+    .buyticket__body {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+}

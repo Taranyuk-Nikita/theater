@@ -11,6 +11,7 @@ const repertoireRouter = require('./routes/repertoire');
 const aboutRouter = require('./routes/about');
 const helpRouter = require('./routes/help');
 const eventRouter = require('./routes/event');
+const buyticketRouter = require('./routes/buyticket');
 const signRouter = require('./routes/sign');
 const adminRouter = require('./routes/admin');
 
@@ -33,6 +34,7 @@ app.use(repertoireRouter);
 app.use(aboutRouter);
 app.use(helpRouter);
 app.use(eventRouter);
+app.use(buyticketRouter);
 app.use(signRouter);
 app.use(adminRouter);
 
