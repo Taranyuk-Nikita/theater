@@ -34,7 +34,7 @@ router.get('/', async function (req, res, next) {
         [Op.gt]: new Date(),
       }
     },
-    limit: 9
+    limit: 12
   })
     .then((result) => addEventInfo(result))
     .then((poster) => res.render('index', { title, poster }))

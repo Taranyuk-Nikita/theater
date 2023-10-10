@@ -225,12 +225,38 @@
     transform: scale(0.95);
 }
 
+.event_ticket_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.event_ticket_amount,
+.event_ticket_price {
+    margin: 0;
+    padding: .8rem 0;
+    margin: 0.2rem;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.event_ticket_amount span:last-child,
+.event_ticket_price span:last-child {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #911D26;
+}
+
 @media (max-width: 1024px) {
     .event {
         padding: 0 0 1.5rem 0;
         margin: 1rem 0 1rem 0;
         border-bottom: solid 2px #911D26;
     }
+
     .event_cover {
         display: none;
     }
@@ -248,18 +274,21 @@
         align-items: center;
         justify-content: center;
     }
+
     .event_about {
         width: 100%;
     }
 }
 
-@media (max-height: 640px) or (max-width: 480px) {
+@media (max-height: 640px) or (max-width: 640px) {
     .poster__title {
         font-size: 2.25rem;
     }
+
     .events__wrapper {
         align-items: center;
     }
+
     .event {
         margin: 2rem 0;
         padding: 0 0 1rem 0;
@@ -299,7 +328,6 @@
     .event_info {
         width: 100%;
 
-        display: 911D26;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -319,7 +347,30 @@
         font-size: 1.1rem;
         line-height: 1.15;
     }
+
     .event_btns {
         flex-direction: column;
+    }
+
+    .event_ticket_info {
+        flex-direction: column;
+        margin: 0.8rem 0;
+    }
+
+    .event_ticket_amount,
+    .event_ticket_price {
+        margin: 0;
+        padding: 0;
+        margin: 0.2rem;
+        box-sizing: border-box;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 280px) {
+    .event_title {
+        font-size: 2.2rem;
+        line-height: 2.2rem;
     }
 }

@@ -26,6 +26,14 @@ Poster.init(
         poster_price: {
             type: DataTypes.SMALLINT,
             allowNull: false,
+        },
+        poster_amount_tickets: {
+            type: DataTypes.SMALLINT,
+            allowNull: false,
+        },
+        poster_tickets_left: {
+            type: DataTypes.SMALLINT,
+            allowNull: false,
         }
     },
     {

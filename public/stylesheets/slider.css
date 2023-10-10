@@ -268,7 +268,7 @@
    }
  }
 
- @media (max-height: 720px) {
+ @media (max-height: 720px) or (max-width: 480px) {
    .slider__indicators {
      display: none;
    }

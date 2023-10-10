@@ -27,50 +27,59 @@
                         <div class="buyticket__title">Оформление заказа</div>
                         <div class="buyticket__body">
                             <form action="" method="post" class="order_placement">
-                                <span style="font-size: 1.2rem; font-weight: bold;">Введите данные для покупки билета</span>
+                                <span style="font-size: 1.2rem; font-weight: bold;">Введите данные для покупки
+                                    билета</span>
                                 <div class="text-field">
                                     <label for="event_title" class="text-field__label">Представление</label>
-                                    <select name="" id="event_title" class="text-field__input">
+                                    <select name="" id="event_title" class="text-field__input" required>
                                         <option value="0" disabled selected hidden>Выберете мероприятие</option>
-                                        <option value="1" data-ets>1</option>
-                                        <option value="2" data-ets>2</option>
-                                        <option value="3" data-ets>3</option>
+                                        <% result.forEach(({event_title, event_id})=> { %>
+                                            <option value="<%= event_id %>">
+                                                <%= event_title %>
+                                            </option>
+                                            <% }) %>
                                     </select>
                                     <label for="event_poster" class="text-field__label">Сеанс</label>
-                                    <select name="" id="event_poster" class="text-field__input" disabled="true">
-                                        <option value="" disabled selected hidden>Выберете сеанс</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                    <select name="" id="event_poster" class="text-field__input" disabled="true"
+                                        required>
+                                        <option value="" disabled selected hidden>Сначала выберете мероприятие</option>
                                     </select>
                                 </div>
                                 <div class="text-field">
                                     <label for="client_fio" class="text-field__label">ФИО покупателя</label>
                                     <input type="text" name="" id="client_fio" class="text-field__input"
-                                        placeholder="Иванов Иван Иванович">
+                                        placeholder="Иванов Иван Иванович" required>
                                     <label for="client_email" class="text-field__label">Электронная почта</label>
                                     <input type="email" name="" id="client_email" class="text-field__input"
-                                        placeholder="example@mail.ru">
+                                        placeholder="example@mail.ru" required>
                                     <label for="client_phone" class="text-field__label">Номер телефона</label>
                                     <input type="tel" name="" id="client_phone" class="text-field__input"
-                                        placeholder="+7 (999) 999 99 99">
+                                        placeholder="+7 (999) 999 99 99" required>
                                 </div>
                                 <div class="text-field">
                                     <label for="oreder_payment" class="text-field__label">Способ оплаты</label>
-                                    <select name="" id="oreder_payment" class="text-field__input">
-                                        <option value="" disabled selected hidden>Выберете способ оплаты</option>
+                                    <select name="" id="oreder_payment" class="text-field__input" required>
+                                        <option value="0" disabled selected hidden>Выберете способ оплаты</option>
                                         <option value="1">Банковской картой</option>
                                         <option value="2">Пушкинской картой</option>
                                     </select>
                                 </div>
+                                <div class="text-field tickets_info">
+                                    <div>
+                                        <span>Билетов в наличии: </span><span>100</span>
+                                    </div>
+                                    <div>
+                                        <span>Цена билета: </span><span>200 ₽</span>
+                                    </div>
+                                </div>
                                 <div class="text-field">
-                                    <input type="checkbox" name="" id="345" class="custom-checkbox">
-                                    <label for="345" class="text-field__label">
+                                    <input type="checkbox" name="" id="order_rules" class="custom-checkbox" required>
+                                    <label for="order_rules" class="text-field__label">
                                         <p style="margin: 0.5rem 0;">
                                             С <a href="" class="custom-a">правилами продажи и возврата
                                                 билетов ознакомлен</a>. Даю <a href="" class="custom-a"> согласие на
                                                 обработку персональных данных</a> с целью выполнения данного заказа.
-                                        </p> 
+                                        </p>
                                     </label>
                                 </div>
                                 <div class="form_accept">
@@ -79,10 +88,28 @@
                                 </div>
                             </form>
                             <div class="order_info">
-                                <p><strong>ВНИМАНИЕ</strong>: при оплате пушкинской картой, обязательно введите
-                                    полные ФАМИЛИЮ, ИМЯ и ОТЧЕСТВО. Они будут проверены на контроле билетов.
-                                    <br>Также необходимо указать номер телефона из личного кабинета пользователя
-                                    портала "Госуслуги.Культура"
+                                <p>
+                                    Будте внимательны при заполнении данных для покупки билета! Обязательно введите
+                                    полные ФАМИЛИЮ, ИМЯ и ОТЧЕСТВО, укажите свою действующую электронную почту и
+                                    действующий номер телефона.
+                                </p>
+                                <p>
+                                    В случае успешной оплаты, на указанную электронную прейдёт письмо с билетом на
+                                    мероприятие.
+                                </p>
+                                <p>
+                                    <strong>ВНИМАНИЕ</strong>: при оплате пушкинской картой, ваши ФАМИЛИЯ, ИМЯ и
+                                    ОТЧЕСТВО будут проверены на контроле билетов. Также необходимо указать номер
+                                    телефона из личного кабинета пользователя портала "Госуслуги.Культура"
+                                </p>
+                                <p>
+                                    По вопросам приобритения билетов перейдите во вкладку <strong><a href="/help"
+                                            class="custom-a">ПОМОЩЬ</a></strong>, или звоните по телефону <strong>+7
+                                        (902)
+                                        176 43 36</strong> (Юлия Станиславовна Ващук).
+                                </p>
+                                <p>
+                                    Звонки принимаются с понедельника по субботу с 9:00 до 20:00.
                                 </p>
                             </div>
                         </div>

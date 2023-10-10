@@ -26,23 +26,24 @@
                             <div class="slider__items">
                                 <!--  -->
                                 <% if (poster.length) { %>
-                                    <% poster.forEach(({poster_id, poster_datetime, event_id, event_title, event_subtitle, event_rating, event_description_tiny}) => { %>
-                                    <div class="slider__item">
-                                        <div class="slider__item_inner">
-                                            <span class="slider__event_title"><%= event_title %></span>
-                                            <span class="slider__event_description"><%= event_description_tiny %></span>
-                                            <span class="slider__event_info">
-                                                <span class="slider__event_dateANDrating">
-
-                                                    <span class="slider__event_date"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %> <%= poster_datetime.toLocaleTimeString('ru-RU', {hour: "numeric", minute: "numeric"}) %></span>
-                                                    <span class="slider__event_rating"><%= event_rating %>+</span>
+                                    <% for (let i = 0; i < 4; i++) { %>
+                                        <% let {poster_id, poster_datetime, event_id, event_title, event_subtitle, event_rating, event_description_tiny} = poster[i] %>
+                                        <div class="slider__item">
+                                            <div class="slider__item_inner">
+                                                <span class="slider__event_title"><%= event_title %></span>
+                                                <span class="slider__event_description"><%= event_description_tiny %></span>
+                                                <span class="slider__event_info">
+                                                    <span class="slider__event_dateANDrating">
+    
+                                                        <span class="slider__event_date"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %> <%= poster_datetime.toLocaleTimeString('ru-RU', {hour: "numeric", minute: "numeric"}) %></span>
+                                                        <span class="slider__event_rating"><%= event_rating %>+</span>
+                                                    </span>
+                                                    <a class="slider__event_learnmore" href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'>Купить билет</a>
                                                 </span>
-                                                <a class="slider__event_learnmore" href='/event/<%= event_id %>'>Подробнее</a>
-                                            </span>
+                                            </div>
+                                            <img src="/images/DSC06032.jpg" alt="">
                                         </div>
-                                        <img src="/images/DSC06032.jpg" alt="">
-                                    </div>
-                                    <% }) %>
+                                    <% } %>
                                 <% } %>
                                 <!--  -->
                             </div>
@@ -72,9 +73,19 @@
                                                         <span class="event_authors"><%= event_subtitle %></span>
                                                         <span class="event_rating"><%= event_rating %>+</span>
                                                         <p class="event_description"><%= event_description_tiny %></p>
+                                                        <div class="event_ticket_info">
+                                                            <div class="event_ticket_amount">
+                                                                <span>Билетов в наличии: </span>
+                                                                <span>100</span>
+                                                            </div>
+                                                            <div class="event_ticket_price">
+                                                                <span>Цена билета: </span>
+                                                                <span>200 ₽</span>
+                                                            </div>
+                                                        </div>
                                                         <div class="event_btns">
                                                             <button class="event_learnmore" onclick="location.href='/event/<%= event_id %>'">Подробнее</button>
-                                                            <button class="event_learnmore" onclick="location.href='/buyticket?poster=<%= poster_id %>'">Купить билет</button>
+                                                            <button class="event_learnmore" onclick="location.href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'">Купить билет</button>
                                                         </div>
                                                     </div>
                                                 </div>
