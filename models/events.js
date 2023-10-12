@@ -35,13 +35,18 @@ Event.init(
             allowNull: false,
             unique: false,
         },
+        event_pushka: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            unique: false,
+        },
         event_authors: {
             type: DataTypes.TEXT,
             allowNull: false,
             unique: false,
         },
         event_description_tiny: {
-            type: DataTypes.TEXT('tiny'),
+            type: DataTypes.STRING(256),
             allowNull: false,
             unique: false,
         },

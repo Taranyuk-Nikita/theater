@@ -37,7 +37,7 @@ Ticket.init(
             allowNull: false,
         },
         ticket_owner_phone: {
-            type: DataTypes.STRING(128),
+            type: DataTypes.STRING(18),
             allowNull: false,
         },
         ticket_owner_email: {

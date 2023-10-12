@@ -11,7 +11,7 @@ router.get('/buyticket', async function (req, res, next) {
     order: [
       ['event_title', 'ASC'],
     ],
-    attributes: ['event_title', 'event_id']
+    attributes: ['event_title', 'event_id', 'event_pushka']
   })
     .then((result) => res.render('buyticket', { title: 'Оформление заказа', result }))
     .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))
@@ -30,7 +30,7 @@ router.get('/buyticket/getposter/:eventId', async function (req, res, next) {
         [Op.gt]: new Date(),
       }
     },
-    attributes: ['poster_id', 'poster_datetime']
+    attributes: ['poster_id', 'poster_datetime', 'poster_price', 'poster_amount_tickets', 'poster_tickets_sold']
   })
     .then((poster) => res.json(poster))
     .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))

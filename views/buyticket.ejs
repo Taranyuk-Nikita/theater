@@ -33,8 +33,8 @@
                                     <label for="event_title" class="text-field__label">Представление</label>
                                     <select name="" id="event_title" class="text-field__input" required>
                                         <option value="0" disabled selected hidden>Выберете мероприятие</option>
-                                        <% result.forEach(({event_title, event_id})=> { %>
-                                            <option value="<%= event_id %>">
+                                        <% result.forEach(({event_title, event_id, event_pushka})=> { %>
+                                            <option value="<%= event_id %>" data-pushka="<%= event_pushka %>">
                                                 <%= event_title %>
                                             </option>
                                             <% }) %>
@@ -57,8 +57,8 @@
                                         placeholder="+7 (999) 999 99 99" required>
                                 </div>
                                 <div class="text-field">
-                                    <label for="oreder_payment" class="text-field__label">Способ оплаты</label>
-                                    <select name="" id="oreder_payment" class="text-field__input" required>
+                                    <label for="order_payment" class="text-field__label">Способ оплаты</label>
+                                    <select name="" id="order_payment" class="text-field__input" required>
                                         <option value="0" disabled selected hidden>Выберете способ оплаты</option>
                                         <option value="1">Банковской картой</option>
                                         <option value="2">Пушкинской картой</option>
@@ -66,10 +66,10 @@
                                 </div>
                                 <div class="text-field tickets_info">
                                     <div>
-                                        <span>Билетов в наличии: </span><span>100</span>
+                                        <span>Билетов в наличии: </span><span id="tickets_left" style="color: #f0f0f0;">00000</span>
                                     </div>
                                     <div>
-                                        <span>Цена билета: </span><span>200 ₽</span>
+                                        <span>Цена билета: </span><span id="tickets_price" style="color: #f0f0f0;">00000</span>
                                     </div>
                                 </div>
                                 <div class="text-field">
@@ -88,6 +88,7 @@
                                 </div>
                             </form>
                             <div class="order_info">
+                                <span style="font-size: 1.2rem; font-weight: bold;">Ознакомтесь перед заказом билета:</span>
                                 <p>
                                     Будте внимательны при заполнении данных для покупки билета! Обязательно введите
                                     полные ФАМИЛИЮ, ИМЯ и ОТЧЕСТВО, укажите свою действующую электронную почту и
@@ -95,7 +96,8 @@
                                 </p>
                                 <p>
                                     В случае успешной оплаты, на указанную электронную прейдёт письмо с билетом на
-                                    мероприятие.
+                                    мероприятие в формате PDF. Вы можете распечатать данный билет или предаставить его в
+                                    электронном виде на пункте контроля билетов.
                                 </p>
                                 <p>
                                     <strong>ВНИМАНИЕ</strong>: при оплате пушкинской картой, ваши ФАМИЛИЯ, ИМЯ и

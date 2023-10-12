@@ -12,8 +12,9 @@ router.get('/', async function (req, res, next) {
     for (let i = 0; i < poster.length; i++) {
       event = await Models.Events.findOne({
         where: { event_id: poster[i].poster_event },
-        attributes: ['event_id', 'event_title', 'event_subtitle', 'event_rating', 'event_description_tiny']
+        attributes: ['event_id', 'event_title', 'event_subtitle', 'event_rating', 'event_pushka', 'event_description_tiny']
       })
+      poster[i].poster_tickets_left = poster[i].poster_amount_tickets - poster[i].poster_tickets_sold
       poster[i].event_id = event.event_id
       poster[i].event_title = event.event_title
       poster[i].event_subtitle = event.event_subtitle
@@ -22,6 +23,7 @@ router.get('/', async function (req, res, next) {
         attributes: ['rating_title']
       })
       poster[i].event_rating = poster[i].event_rating.dataValues.rating_title
+      poster[i].event_pushka = event.event_pushka
       poster[i].event_description_tiny = event.event_description_tiny
     }
     return poster

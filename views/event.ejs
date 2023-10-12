@@ -41,7 +41,12 @@
                                         <h1 class="single_event__title"><%= event.event_title %></h1>
                                         <span class="single_event__genre"><%= event.event_subtitle %></span>
                                         <span class="single_event__duration">Длительность: <%= event.event_duration %></span>
-                                        <span class="single_event__rating"><%= event.event_rating %>+</span>
+                                        <div style="display: flex;">
+                                            <span class="single_event__rating"><%= event.event_rating %>+</span>
+                                            <% if (event.event_pushka) { %> 
+                                                <img src="/images/Name_monochrome.png" alt="Участвует в проекте «Пушкинская карта»" style="height: 41px; margin: .5rem 0;" title="Участвует в проекте «Пушкинская карта»">
+                                            <% } %>
+                                        </div>
                                         <ul class="singel_event__credits">
                                             <% event.event_authors.forEach((author) => { %>
                                                 <li><%= author %></li>

@@ -31,7 +31,7 @@ Poster.init(
             type: DataTypes.SMALLINT,
             allowNull: false,
         },
-        poster_tickets_left: {
+        poster_tickets_sold: {
             type: DataTypes.SMALLINT,
             allowNull: false,
         }
