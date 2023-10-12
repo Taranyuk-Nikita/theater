@@ -7,6 +7,8 @@
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
     <link rel="stylesheet" href="stylesheets/admin.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+    <link rel="stylesheet" href="stylesheets/modal.css">
     <script src="javascripts/admin.js"></script>
 </head>
 
@@ -27,7 +29,7 @@
         <!-- (A2) MENU ITEMS -->
         <a href="#" onclick="return getPoster('Poster')">
             <i class="ico">&#128197;</i>
-            <i class="txt">Расписание</i>
+            <i class="txt">Афиша</i>
         </a>
         <a href="#" onclick="return getRepertoire('Repertoire')">
             <i class="ico">&#11088;</i>
@@ -47,6 +49,111 @@
     <main id="pgmain">
         <%- include("layouts/workspace"); %>
     </main>
+    <section class="modal">
+        <div class="modal__wrapper">
+            <form action="" method="" class="order_placement">
+                <span style="font-size: 1.2rem; font-weight: bold;">Добавить мероприятие в Репертуар:</span>
+                <div class="text-field">
+                    <label for="event_title" class="text-field__label">Заголовок</label>
+                    <input type="text" name="" id="event_title" class="text-field__input"
+                        placeholder="Максимум 256 символов..." maxlength="256" >
+                    <label for="event_subtitle" class="text-field__label">Подзаголовок</label>
+                    <input type="text" name="" id="event_subtitle" class="text-field__input"
+                        placeholder="Максимум 256 символов..." maxlength="256" >
+                    <label for="event_duration" class="text-field__label">Длительность: <span
+                            id="duration_value"></span></label>
+                    <input type="range" name="" id="event_duration" class="text-field__input" placeholder="" min="0"
+                        max="240" step="10" value="0" >
+                    <label for="event_rating" class="text-field__label">Возрастной рейтинг</label>
+                    <select name="" id="event_rating" class="text-field__input" >
+                        <option value="0" disabled selected hidden></option>
+                        <option value="0+">0+</option>
+                        <option value="6+">6+</option>
+                        <option value="12+">12+</option>
+                        <option value="16+">16+</option>
+                        <option value="18+">18+</option>
+                    </select>
+                    <input type="checkbox" name="" id="event_pushka" class="custom-checkbox" >
+                    <label for="event_pushka" class="text-field__label">
+                        <p style="margin: 0.5rem 0;">
+                            Участвует в программе «Пушкинская карта»
+                        </p>
+                    </label>
+                    <label for="event_authors" class="text-field__label">Авторы</label>
+                    <textarea name="" id="" rows="5" class="text-field__textarea"></textarea>
+                    <label for="event_authors" class="text-field__label">Краткое описание</label>
+                    <textarea name="" id="" rows="5" class="text-field__textarea"></textarea>
+                    <label for="event_authors" class="text-field__label">Полное описание</label>
+                    <textarea name="" id="" rows="15" class="text-field__textarea"></textarea>
+
+                </div>
+                <div class="file-field">
+                    <input type="file" name="" id="event_cover" class="file-field__input" accept=".jpg, .jpeg, .png"
+                        >
+                    <label for="event_cover" class="file-field__label">
+                        <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
+                        <span class="file-field__label-text">Загрузить обложку</span>
+                    </label>
+                    <input type="file" name="" id="event_gallery" class="file-field__input" accept=".jpg, .jpeg, .png"
+                        multiple >
+                    <label for="event_gallery" class="file-field__label">
+                        <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
+                        <span class="file-field__label-text">Загрузить галерею</span>
+                    </label>
+                </div>
+                <div class="form_accept">
+                    <button id="closeModal" style="background-color: #ffffff; color: #911D26;">Отмена</button>
+                    <button id="acceptModal" disabled="true">Добавить мероприятие</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
+
+<script>
+    /* Модальное окно */
+    const modal = document.querySelector('.modal')
+    let openModal
+    const closeModal = document.querySelector('#closeModal')
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('active')
+    })
+
+
+    /* Продолжительность мероприятия */
+    document.querySelector('#event_duration').addEventListener('input', () => {
+        duration = document.querySelector('#event_duration').value
+        Math.floor(duration / 60) > 0 ?
+            result = `${Math.floor(duration / 60)} ч. ${duration % 60} мин.` :
+            result = `${duration % 60} мин.`
+        document.querySelector('#duration_value').innerHTML = result
+    })
+
+    /* Загрузка файлов */
+    let inputs = document.querySelectorAll('.file-field__input');
+    Array.prototype.forEach.call(inputs, function (input) {
+
+        let label = input.nextElementSibling
+        console.log(label.querySelector('.file-field__label-text').innerText);
+        let labelVal = label.querySelector('.file-field__label-text').innerHTML;
+
+        input.addEventListener('change', function (e) {
+            let countFiles = '';
+            if (this.files && this.files.length >= 1)
+                countFiles = this.files.length;
+            if (countFiles) {
+                label.querySelector('.file-field__label-text').innerText = 'Выбрано файлов: ' + countFiles;
+                label.classList.add('load')
+            } else {
+                label.querySelector('.file-field__label-text').innerText = labelVal;
+                label.classList.remove('load')
+            }
+        });
+    });
+
+</script>
+
+</script>
+<script src="https://kit.fontawesome.com/b6f52fc10b.js" crossorigin="anonymous"></script>

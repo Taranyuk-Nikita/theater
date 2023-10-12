@@ -19,7 +19,7 @@
     height: calc(2rem + 2px);
     padding: 0.375rem 0.75rem;
     font-family: inherit;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -30,11 +30,30 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.text-field__textarea {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    resize: none;
+}
+
+.text-field__textarea::placeholder,
 .text-field__input::placeholder {
     color: #212529;
     opacity: 0.4;
 }
 
+.text-field__textarea:focus,
 .text-field__input:focus {
     color: #212529;
     background-color: #fff;
@@ -43,6 +62,8 @@
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }
 
+.text-field__textarea:disabled,
+.text-field__textarea[readonly],
 .text-field__input:disabled,
 .text-field__input[readonly] {
     background-color: #f5f5f5;
@@ -183,9 +204,55 @@
     justify-content: space-between;
 }
 
+.file-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.file-field__input {
+    display: none;
+}
+
+.file-field__label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 49%;
+    height: calc(2rem + 2px);
+    margin-bottom: 1rem;
+    padding: .375rem 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #911D26;
+    background: #911D2600;
+    border: 1px solid #911D26;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+.file-field__label:hover {
+    background: #911D2610;
+}
+
+.load {
+    background: #911D26;
+    color: #ffff;
+}
+.load:hover {
+    background: #911D26e0;
+}
+
+.file-field__label-icon {
+    margin-right: .5rem;
+}
+
 @media (max-width: 480px) {
     .form_accept {
         flex-direction: column-reverse; 
+    }
+    .file-field {
+        flex-direction: column;
     }
 }
 

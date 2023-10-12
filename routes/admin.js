@@ -42,8 +42,8 @@ router.get('/table/:tablename', async function (req, res, next) {
           })
           .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))
         break;
+      /* ----- */  
       case "Repertoire":
-        let events;
         const addEventsInfo = async (event) => {
           for (let i = 0; i < event.length; i++) {
             raiting = await Models.EventRating.findOne({
@@ -62,6 +62,7 @@ router.get('/table/:tablename', async function (req, res, next) {
           })
           .catch((error) => console.log(` ERROR! \n ${console.error(error)}`))
         break;
+      /* ----- */  
       default:
         break;
     }
