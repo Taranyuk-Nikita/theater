@@ -20,8 +20,9 @@ router.get('/', async function (req, res, next) {
       poster[i].event_subtitle = event.event_subtitle
       poster[i].event_rating = await Models.EventRating.findOne({
         where: { rating_id: event.event_rating },
-        attributes: ['rating_title']
+        attributes: ['rating_title', 'rating_description']
       })
+      poster[i].rating_description = poster[i].event_rating.dataValues.rating_description
       poster[i].event_rating = poster[i].event_rating.dataValues.rating_title
       poster[i].event_pushka = event.event_pushka
       poster[i].event_description_tiny = event.event_description_tiny

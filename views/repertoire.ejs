@@ -33,7 +33,7 @@
                                                 <%= event_title %>
                                             </span>
                                             <span class="card_description">
-                                                <%= event_description_tiny %>
+                                                <%= event_description_tiny.replaceAll(';', '\n') %>
                                             </span>
                                             <span>
                                                 <a class="card_learnmore" href="/event/<%= event_id %>">Подробнее</a>

@@ -51,21 +51,21 @@
     </main>
     <section class="modal">
         <div class="modal__wrapper">
-            <form action="" method="" class="order_placement">
+            <form class="form" name="addEvent">
                 <span style="font-size: 1.2rem; font-weight: bold;">Добавить мероприятие в Репертуар:</span>
                 <div class="text-field">
                     <label for="event_title" class="text-field__label">Заголовок</label>
-                    <input type="text" name="" id="event_title" class="text-field__input"
-                        placeholder="Максимум 256 символов..." maxlength="256" >
+                    <input type="text" name="event_title" id="event_title" class="text-field__input"
+                        placeholder="Максимум 256 символов..." maxlength="256">
                     <label for="event_subtitle" class="text-field__label">Подзаголовок</label>
-                    <input type="text" name="" id="event_subtitle" class="text-field__input"
-                        placeholder="Максимум 256 символов..." maxlength="256" >
+                    <input type="text" name="event_subtitle" id="event_subtitle" class="text-field__input"
+                        placeholder="Максимум 256 символов..." maxlength="256">
                     <label for="event_duration" class="text-field__label">Длительность: <span
                             id="duration_value"></span></label>
-                    <input type="range" name="" id="event_duration" class="text-field__input" placeholder="" min="0"
-                        max="240" step="10" value="0" >
+                    <input type="range" name="event_duration" id="event_duration" class="text-field__input" placeholder="" min="0"
+                        max="240" step="10" value="0">
                     <label for="event_rating" class="text-field__label">Возрастной рейтинг</label>
-                    <select name="" id="event_rating" class="text-field__input" >
+                    <select name="event_rating" id="event_rating" class="text-field__input">
                         <option value="0" disabled selected hidden></option>
                         <option value="0+">0+</option>
                         <option value="6+">6+</option>
@@ -73,29 +73,28 @@
                         <option value="16+">16+</option>
                         <option value="18+">18+</option>
                     </select>
-                    <input type="checkbox" name="" id="event_pushka" class="custom-checkbox" >
+                    <input type="checkbox" name="event_pushka" id="event_pushka" class="custom-checkbox">
                     <label for="event_pushka" class="text-field__label">
                         <p style="margin: 0.5rem 0;">
                             Участвует в программе «Пушкинская карта»
                         </p>
                     </label>
                     <label for="event_authors" class="text-field__label">Авторы</label>
-                    <textarea name="" id="" rows="5" class="text-field__textarea"></textarea>
-                    <label for="event_authors" class="text-field__label">Краткое описание</label>
-                    <textarea name="" id="" rows="5" class="text-field__textarea"></textarea>
-                    <label for="event_authors" class="text-field__label">Полное описание</label>
-                    <textarea name="" id="" rows="15" class="text-field__textarea"></textarea>
+                    <textarea name="event_authors" id="event_authors" rows="5" class="text-field__textarea"></textarea>
+                    <label for="event_description_tiny" class="text-field__label">Краткое описание</label>
+                    <textarea name="event_description_tiny" id="event_description_tiny" rows="5" class="text-field__textarea"></textarea>
+                    <label for="event_description" class="text-field__label">Полное описание</label>
+                    <textarea name="event_description" id="event_description" rows="15" class="text-field__textarea"></textarea>
 
                 </div>
                 <div class="file-field">
-                    <input type="file" name="" id="event_cover" class="file-field__input" accept=".jpg, .jpeg, .png"
-                        >
+                    <input type="file" name="" id="event_cover" class="file-field__input" accept=".jpg, .jpeg, .png">
                     <label for="event_cover" class="file-field__label">
                         <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
                         <span class="file-field__label-text">Загрузить обложку</span>
                     </label>
                     <input type="file" name="" id="event_gallery" class="file-field__input" accept=".jpg, .jpeg, .png"
-                        multiple >
+                        multiple>
                     <label for="event_gallery" class="file-field__label">
                         <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
                         <span class="file-field__label-text">Загрузить галерею</span>
@@ -103,7 +102,8 @@
                 </div>
                 <div class="form_accept">
                     <button id="closeModal" style="background-color: #ffffff; color: #911D26;">Отмена</button>
-                    <button id="acceptModal" disabled="true">Добавить мероприятие</button>
+                    <button id="acceptModal">Добавить мероприятие</button>
+                    <!-- <button id="acceptModal" disabled="true">Добавить мероприятие</button> -->
                 </div>
             </form>
         </div>
@@ -117,10 +117,10 @@
     const modal = document.querySelector('.modal')
     let openModal
     const closeModal = document.querySelector('#closeModal')
-    closeModal.addEventListener('click', () => {
+    closeModal.addEventListener('click', (event) => {
+        event.preventDefault()
         modal.classList.remove('active')
     })
-
 
     /* Продолжительность мероприятия */
     document.querySelector('#event_duration').addEventListener('input', () => {
@@ -152,6 +152,38 @@
             }
         });
     });
+
+    /* Отправка формы */
+    function addEvent() {
+        const data = {
+            event_title: document.forms.addEvent.elements.event_title.value,
+            event_subtitle: document.forms.addEvent.elements.event_subtitle.value,
+            event_duration: document.forms.addEvent.elements.event_duration.value,
+            event_rating: document.forms.addEvent.elements.event_rating.value,
+            event_pushka: document.forms.addEvent.elements.event_pushka.checked,
+            event_authors: document.forms.addEvent.elements.event_authors.value.replaceAll('\n', ';'),
+            event_description_tiny: document.forms.addEvent.elements.event_description_tiny.value.replaceAll('\n', ';'),
+            event_description: document.forms.addEvent.elements.event_description.value.replaceAll('\n', ';'),
+        }
+        fetch("/addEvent", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.text())
+            .then(txt => {
+                alert(txt);
+            })
+            .catch(err => console.error(err));
+    }
+    document.querySelector('#acceptModal').addEventListener('click', (event) => {
+        event.preventDefault()
+        addEvent()
+        document.querySelector('.form').reset()
+        modal.classList.remove('active')
+    })
 
 </script>
 

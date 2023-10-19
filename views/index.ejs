@@ -57,7 +57,7 @@
                                 <div class="events__wrapper">
                                     <!--  -->
                                     <% if (poster.length) { %>
-                                        <% poster.forEach(({poster_id, poster_datetime, poster_price, poster_tickets_left, event_id, event_title, event_subtitle, event_rating, event_pushka, event_description_tiny}) => { %>
+                                        <% poster.forEach(({poster_id, poster_datetime, poster_price, poster_tickets_left, event_id, event_title, event_subtitle, event_rating, rating_description, event_pushka, event_description_tiny}) => { %>
                                             <div class="event">
                                                 <div class="event_date">
                                                     <span class="event_day"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %></span>
@@ -71,7 +71,7 @@
                                                         <h3 class="event_title"><%= event_title %></h3>
                                                         <span class="event_authors"><%= event_subtitle %></span>
                                                         <div style="display: flex;">
-                                                            <span class="event_rating"><%= event_rating %>+</span>
+                                                            <span class="event_rating" title="<%= rating_description %>"><%= event_rating %>+</span>
                                                             <% if (event_pushka) { %> 
                                                                 <img src="/images/Name_monochrome.png" alt="Участвует в проекте «Пушкинская карта»" style="height: 41px;" title="Участвует в проекте «Пушкинская карта»">
                                                             <% } %>

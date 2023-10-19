@@ -42,7 +42,7 @@ function getPoster( tableName ) {
       `
     })
     
-    document.querySelector('.workspace__title').innerHTML = `Расписание`
+    document.querySelector('.workspace__title').innerHTML = `Афиша`
     document.querySelector('.workspace_btns').innerHTML = `
       <button type="button">Выгрузить отчёт</button>
       <button type="button">Добавить мероприятие</button>
@@ -70,7 +70,7 @@ function getRepertoire( tableName ) {
                 <th>Продолжительность (в мин.)</th>
                 <th>Рейтинг</th>
                 <th>Пушкинская карта</th>
-                <th colspan="2">Опции</th>
+                <th colspan="3">Опции</th>
             </tr>
         </thead>
     `
@@ -86,6 +86,7 @@ function getRepertoire( tableName ) {
           <td>${element.event_duration}</td>
           <td>${element.event_rating}+</td>
           <td>${element.event_pushka}</td>
+          <td>Посмотреть</td>
           <td>Редактировать</td>
           <td>Удалить</td>
         </tr>
