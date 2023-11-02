@@ -34,6 +34,10 @@ Poster.init(
         poster_tickets_sold: {
             type: DataTypes.SMALLINT,
             allowNull: false,
+        },
+        poster_link_on_kassy_ru: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {

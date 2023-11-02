@@ -99,6 +99,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     background-color: #911D26;
+    cursor: help;
 }
 
 .singel_event__credits {
@@ -337,8 +338,9 @@
     padding: 10px;
     box-sizing: border-box;
     display: block;
-    width: auto;
+    max-width: 85vw;
     max-height: 85vh;
+    object-fit: contain;
 }
 
 #caption {

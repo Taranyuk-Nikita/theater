@@ -2,64 +2,124 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>УМТЭ | <%= title %></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/main.css">
-    <link rel="stylesheet" href="/stylesheets/preloader.css">
-    <link rel="stylesheet" href="/stylesheets/help.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>УМТЭ | <%= title %>
+  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <link rel="stylesheet" href="/stylesheets/preloader.css">
+  <link rel="stylesheet" href="/stylesheets/help.css">
+  <link rel="stylesheet" href="/stylesheets/about.css">
 </head>
 
-    <body>
-        <%- include('layouts/preloader') -%>
-        <%- include('layouts/header') -%>
-            <main>
-                <section class="help">
-                    <div class="help__wrapper">
-                        <div class="help__title">Помощь</div>
-                        <div class="help__body">
-                            <div class="tabs">
-                                <input type="radio" name="tabs" id="tab1" checked="checked">
-                                <label for="tab1">Как купить билет?</label>
-                                <div class="tab">
-                                  <h1>Как купить билет?</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                                
-                                <input type="radio" name="tabs" id="tab2">
-                                <label for="tab2">Как вернуть билет?</label>
-                                <div class="tab">
-                                  <h1>Как вернуть билет?</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                                
-                                <input type="radio" name="tabs" id="tab3">
-                                <label for="tab3">Документы</label>
-                                <div class="tab">
-                                  <h1>Документы</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                </div>
+<body>
+  <%- include('layouts/preloader') -%>
+    <%- include('layouts/header') -%>
+      <main>
+        <section class="help">
+          <div class="help__wrapper">
+            <div class="help__title">Помощь</div>
+            <div class="help__body">
+              <div class="tabs">
+                <!-- <input type="radio" name="tabs" id="tab1">
+                <label for="tab1">Как купить билет?</label>
+                <div class="tab">
+                  <h1>Как купить билет?</h1>
+                  <p></p>
+                </div>
 
-                                <input type="radio" name="tabs" id="tab4">
-                                <label for="tab4">Контакты</label>
-                                <div class="tab">
-                                  <h1>Контакты</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        <%- include('layouts/footer') -%>
-    </body>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">Как вернуть билет?</label>
+                <div class="tab">
+                  <h1>Как вернуть билет?</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div> -->
+
+                <input type="radio" name="tabs" id="tab4">
+                <label for="tab4">Контакты</label>
+                <div class="tab">
+                  <h1>Контакты</h1>
+                  <div class="about__info_disc">
+                    <p>
+                      <i class="fa-solid fa-location-dot" style="color: #911D26;"></i>
+                      <strong>Адрес:</strong> Иркутская обл, г Иркутск, ул 5-я Железнодорожная, д 53
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-bus-simple" style="color: #911D26;"></i>
+                      <strong>Как добраться:</strong> трамвайная остановка «Студгородок», автобусная
+                      остановка «Технический университет»
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-building-columns" style="color: #911D26;"></i>
+                      <strong>Вместимость зала:</strong> 180 мест
+                    </p>
+                    <!-- <p>
+                      <i class="fa-solid fa-clock" style="color: #911D26;"></i>
+                      <strong>Время работы:</strong> Понедельник – Суббота: с 09:00 до 20:00
+                    </p> -->
+                    <p>
+                      <i class="fa-brands fa-vk" style="color: #911D26;"></i>
+                      <strong>Группа в ВК:</strong> <a href="https://vk.com/uchebnyi_teatr_estrady_irkpo"
+                        class="custom-a" target="_blank">Перейти</a>
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-at" style="color: #911D26;"></i>
+                      <strong>Электронная почта:</strong> vjs@irkpo.ru
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-phone" style="color: #911D26;"></i>
+                      <strong>Телефон:</strong> +7 (902) 176-43-36 (Юлия Станиславовна Ващук)
+                    </p>
+                  </div>
+                </div>
+
+                <input type="radio" name="tabs" id="tab5">
+                <label for="tab5">О театре</label>
+                <div class="tab">
+                  <h1>О театре</h1>
+                  <div class="about__disc">
+                    <p><strong>Учебный Музыкальный Театр Эстрады</strong> – это учебно-производственный
+                      комплекс
+                      ИРКПО, который
+                      позволяет студентам не только совершенствовать уровень своей профессиональной
+                      подготовки, но и приобретать конкурентоспособность на рынке труда.</p>
+                    <p>В УМТЭ студенты делают свои первые шаги в профессию и учатся работать командой, в
+                      которой
+                      каждый отвечает за свою часть общего дела: студенты артистических специальностей
+                      выступают
+                      на сцене, студенты-информатики обеспечивают техническую поддержку, а будущие
+                      педагоги
+                      дополнительного образования в декоративно-прикладных областях принимают участие в
+                      художественном оформлении сцены.</p>
+                    <p>Под руководством преподавателей сценической речи и актерского мастерства, хореографов
+                      и
+                      преподавателей вокала студенты-старшекурсники регулярно представляют зрителям свои
+                      творческие работы: песни, танцы, художественное чтение, которые педагоги-режиссеры
+                      оформляют в единую театрализованную форму. Поэтому репертуар театра постоянно
+                      обновляется концертами, литературными вечерами, музыкальными шоу и спектаклями.</p>
+                    <p>Многогранные и яркие жанры эстрадного искусства, разнообразие вокальных стилей,
+                      актуальные и глубокие темы постановок не только подарят зрителю отличное настроение,
+                      но
+                      и дадут пищу для ума и для души.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <%- include('layouts/footer') -%>
+</body>
 
 <%- include('layouts/scripts') -%>
 

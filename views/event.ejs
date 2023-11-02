@@ -33,8 +33,8 @@
                         <div class="single_event__wrapper">
                             <div class="single_event__head">
                                 <div class="singel_event__cover">
-                                    <img src="/images/Афиша - Музыка - душа кино.jpeg"
-                                        alt="Постер - Музыка - душа кино" class="single_event__imgInGallery">
+                                    <img src="/storage/<%= event.event_id %>/cover_<%= event.event_id %>.jpg"
+                                        alt="Постер - <%= event.event_title %>" class="single_event__imgInGallery">
                                 </div>
                                 <div class="singel_event__infowrapper">
                                     <div class="singel_event__maininfo">
@@ -42,9 +42,9 @@
                                         <span class="single_event__genre"><%= event.event_subtitle %></span>
                                         <span class="single_event__duration">Длительность: <%= event.event_duration %></span>
                                         <div style="display: flex;">
-                                            <span class="single_event__rating"><%= event.event_rating %>+</span>
+                                            <span class="single_event__rating" title="<%= event.rating_description %>"><%= event.event_rating %>+</span>
                                             <% if (event.event_pushka) { %> 
-                                                <img src="/images/Name_monochrome.png" alt="Участвует в проекте «Пушкинская карта»" style="height: 41px; margin: .5rem 0;" title="Участвует в проекте «Пушкинская карта»">
+                                                <img src="/images/Name_monochrome.png" alt="Участвует в проекте «Пушкинская карта»" style="height: 41px; margin: .5rem 0; cursor: help;" title="Участвует в проекте «Пушкинская карта»">
                                             <% } %>
                                         </div>
                                         <ul class="singel_event__credits">
@@ -53,7 +53,7 @@
                                             <% }) %>
                                         </ul>
                                     </div>
-                                    <button class="single_event__buyticket" onclick="location.href='/buyticket?event=<%= event.event_id %>'">Купить билет</button>
+                                    <!-- <button class="single_event__buyticket" onclick="location.href='/buyticket?event=<%= event.event_id %>'">Купить билет</button> -->
                                 </div>
                             </div>
                             <div class="single_event__body">
@@ -67,25 +67,25 @@
                                     <div style="width: 100%;">
                                         <span class="single_event__subtitle">Галерея</span>
                                     </div>
-                                    <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="Проделки Ханумы - 01" id="img1id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-0_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 01" id="img1id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 02" id="img2id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-1_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 02" id="img2id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 03" id="img3id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-2_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 03" id="img3id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 04" id="img4id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-3_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 04" id="img4id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 05" id="img5id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-4_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 05" id="img5id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 06" id="img6id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-5_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 06" id="img6id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 07" id="img7id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-6_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 07" id="img7id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 08" id="img8id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-7_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 08" id="img8id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 09" id="img9id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-8_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 09" id="img9id"
                                         class="single_event__imgInGallery">
-                                    <img src="/images/DSC_3533.jpg" alt="Проделки Ханумы - 10" id="img10id"
+                                    <img src="/storage/<%= event.event_id %>/gallery-9_<%= event.event_id %>.jpg" alt="<%= event.event_title %> - 10" id="img10id"
                                         class="single_event__imgInGallery">
                                 </div>
                             </div>

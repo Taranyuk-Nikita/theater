@@ -6,7 +6,7 @@ const Models = require('../models')
 
 /* GET EVENT page. */
 router.get('/buyticket', async function (req, res, next) {
-
+  return res.redirect('/')
   await Models.Events.findAll({
     order: [
       ['event_title', 'ASC'],
@@ -19,7 +19,7 @@ router.get('/buyticket', async function (req, res, next) {
 });
 
 router.get('/buyticket/getposter/:eventId', async function (req, res, next) {
-
+  return res.redirect('/')
   const eventid = req.params.eventId
 
   await Models.Poster.findAll({

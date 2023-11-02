@@ -33,13 +33,13 @@
                                                 <%= event_title %>
                                             </span>
                                             <span class="card_description">
-                                                <%= event_description_tiny.replaceAll(';', '\n') %>
+                                                <%= event_description_tiny %>
                                             </span>
                                             <span>
                                                 <a class="card_learnmore" href="/event/<%= event_id %>">Подробнее</a>
                                             </span>
                                         </div>
-                                        <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
+                                        <img src="/storage/<%= event_id %>/cover_<%= event_id %>.jpg" alt="<%= event_title %>">
                                     </div>
                                 <% }) %>
                             <% } %>

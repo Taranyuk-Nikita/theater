@@ -27,7 +27,7 @@
         </div>
 
         <!-- (A2) MENU ITEMS -->
-        <a href="#" onclick="return getPoster('Poster')">
+        <a href="#" onclick="return getPosters('Poster')">
             <i class="ico">&#128197;</i>
             <i class="txt">Афиша</i>
         </a>
@@ -35,23 +35,23 @@
             <i class="ico">&#11088;</i>
             <i class="txt">Репертуар</i>
         </a>
-        <a href="#">
+        <!-- <a href="#">
             <i class="ico">&#127915;</i>
             <i class="txt">Билеты</i>
         </a>
         <a href="#">
             <i class="ico">&#128212;</i>
             <i class="txt">Заявления</i>
-        </a>
+        </a> -->
     </div>
 
     <!-- (B) MAIN -->
     <main id="pgmain">
         <%- include("layouts/workspace"); %>
     </main>
-    <section class="modal">
+    <section class="modal" id="modalEvent">
         <div class="modal__wrapper">
-            <form class="form" name="addEvent">
+            <form class="form" name="Event" data-function="">
                 <span style="font-size: 1.2rem; font-weight: bold;">Добавить мероприятие в Репертуар:</span>
                 <div class="text-field">
                     <label for="event_title" class="text-field__label">Заголовок</label>
@@ -62,8 +62,8 @@
                         placeholder="Максимум 256 символов..." maxlength="256">
                     <label for="event_duration" class="text-field__label">Длительность: <span
                             id="duration_value"></span></label>
-                    <input type="range" name="event_duration" id="event_duration" class="text-field__input" placeholder="" min="0"
-                        max="240" step="10" value="0">
+                    <input type="range" name="event_duration" id="event_duration" class="text-field__input"
+                        placeholder="" min="0" max="240" step="10" value="0">
                     <label for="event_rating" class="text-field__label">Возрастной рейтинг</label>
                     <select name="event_rating" id="event_rating" class="text-field__input">
                         <option value="0" disabled selected hidden></option>
@@ -82,18 +82,19 @@
                     <label for="event_authors" class="text-field__label">Авторы</label>
                     <textarea name="event_authors" id="event_authors" rows="5" class="text-field__textarea"></textarea>
                     <label for="event_description_tiny" class="text-field__label">Краткое описание</label>
-                    <textarea name="event_description_tiny" id="event_description_tiny" rows="5" class="text-field__textarea"></textarea>
+                    <textarea name="event_description_tiny" id="event_description_tiny" rows="5"
+                        class="text-field__textarea"></textarea>
                     <label for="event_description" class="text-field__label">Полное описание</label>
-                    <textarea name="event_description" id="event_description" rows="15" class="text-field__textarea"></textarea>
-
+                    <textarea name="event_description" id="event_description" rows="15"
+                        class="text-field__textarea"></textarea>
                 </div>
                 <div class="file-field">
-                    <input type="file" name="" id="event_cover" class="file-field__input" accept=".jpg, .jpeg, .png">
+                    <input type="file" name="event_cover" id="event_cover" class="file-field__input" accept="jpg">
                     <label for="event_cover" class="file-field__label">
                         <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
                         <span class="file-field__label-text">Загрузить обложку</span>
                     </label>
-                    <input type="file" name="" id="event_gallery" class="file-field__input" accept=".jpg, .jpeg, .png"
+                    <input type="file" name="event_gallery" id="event_gallery" class="file-field__input" accept="jpg"
                         multiple>
                     <label for="event_gallery" class="file-field__label">
                         <span class="file-field__label-icon"><i class="fa-solid fa-upload"></i></span>
@@ -101,9 +102,38 @@
                     </label>
                 </div>
                 <div class="form_accept">
-                    <button id="closeModal" style="background-color: #ffffff; color: #911D26;">Отмена</button>
-                    <button id="acceptModal">Добавить мероприятие</button>
-                    <!-- <button id="acceptModal" disabled="true">Добавить мероприятие</button> -->
+                    <button id="closeModalEvent" style="background-color: #ffffff; color: #911D26;">Отмена</button>
+                    <button id="acceptModalEvent">Добавить мероприятие</button>
+                    <!-- <button id="acceptModalEvent" disabled="true">Добавить мероприятие</button> -->
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="modal" id="modalPoster">
+        <div class="modal__wrapper">
+            <form class="form" name="Poster" data-function="">
+                <span style="font-size: 1.2rem; font-weight: bold;">Добавить мероприятие в Афишу:</span>
+                <div class="text-field">
+                    <label for="poster_event" class="text-field__label">Мероприятие</label>
+                    <select name="poster_event" id="poster_event" class="text-field__input">
+                        <option value="0" disabled selected hidden></option>
+                    </select>
+                    <label for="poster_datetime" class="text-field__label">Дата и время</label>
+                    <input type="datetime-local" class="text-field__input" name="poster_datetime" id="poster_datetime">
+                    <label for="poster_price" class="text-field__label">Цена билета</label>
+                    <input type="number" class="text-field__input" name="poster_price" id="poster_price" min="0"
+                        max="32767" value="200">
+                    <label for="poster_amount_tickets" class="text-field__label">Всего билетов</label>
+                    <input type="number" class="text-field__input" name="poster_amount_tickets"
+                        id="poster_amount_tickets" min="0" max="32767" value="150">
+                    <label for="poster_link_on_kassy_ru" class="text-field__label">Ссылка на покупку:</label>
+                    <input type="text" class="text-field__input" name="poster_link_on_kassy_ru"
+                        id="poster_link_on_kassy_ru" maxlength="256">
+                </div>
+                <div class="form_accept">
+                    <button id="closeModalPoster" style="background-color: #ffffff; color: #911D26;">Отмена</button>
+                    <button id="acceptModalPoster">Добавить в афишу</button>
+                    <!-- <button id="acceptModalEvent" disabled="true">Добавить мероприятие</button> -->
                 </div>
             </form>
         </div>
@@ -114,12 +144,21 @@
 
 <script>
     /* Модальное окно */
-    const modal = document.querySelector('.modal')
+    const modalEvent = document.querySelector('#modalEvent')
+    const modalPoster = document.querySelector('#modalPoster')
     let openModal
-    const closeModal = document.querySelector('#closeModal')
-    closeModal.addEventListener('click', (event) => {
+    let eventId
+    const closeModalEvent = document.querySelector('#closeModalEvent')
+    const closeModalPoster = document.querySelector('#closeModalPoster')
+    closeModalEvent.addEventListener('click', (event) => {
         event.preventDefault()
-        modal.classList.remove('active')
+        document.querySelector('.form').reset()
+        modalEvent.classList.remove('active')
+    })
+    closeModalPoster.addEventListener('click', (event) => {
+        event.preventDefault()
+        document.querySelector('.form').reset()
+        modalPoster.classList.remove('active')
     })
 
     /* Продолжительность мероприятия */
@@ -136,7 +175,6 @@
     Array.prototype.forEach.call(inputs, function (input) {
 
         let label = input.nextElementSibling
-        console.log(label.querySelector('.file-field__label-text').innerText);
         let labelVal = label.querySelector('.file-field__label-text').innerHTML;
 
         input.addEventListener('change', function (e) {
@@ -153,19 +191,164 @@
         });
     });
 
-    /* Отправка формы */
-    function addEvent() {
-        const data = {
-            event_title: document.forms.addEvent.elements.event_title.value,
-            event_subtitle: document.forms.addEvent.elements.event_subtitle.value,
-            event_duration: document.forms.addEvent.elements.event_duration.value,
-            event_rating: document.forms.addEvent.elements.event_rating.value,
-            event_pushka: document.forms.addEvent.elements.event_pushka.checked,
-            event_authors: document.forms.addEvent.elements.event_authors.value.replaceAll('\n', ';'),
-            event_description_tiny: document.forms.addEvent.elements.event_description_tiny.value.replaceAll('\n', ';'),
-            event_description: document.forms.addEvent.elements.event_description.value.replaceAll('\n', ';'),
+    /* РЕПЕРТУАР */
+    function getEvent(id) {
+        fetch(`/getEvent/${id}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => data = res.json())
+            .then(event => {
+                document.forms.Event.elements.event_title.value = event.event_title
+                document.forms.Event.elements.event_subtitle.value = event.event_subtitle
+                document.forms.Event.elements.event_duration.value = event.event_duration
+                document.forms.Event.elements.event_rating.value = event.event_rating
+                document.forms.Event.elements.event_pushka.checked = event.event_pushka
+                document.forms.Event.elements.event_authors.value = event.event_authors
+                document.forms.Event.elements.event_description_tiny.value = event.event_description_tiny
+                document.forms.Event.elements.event_description.value = event.event_description
+                eventId = event.event_id
+                document.querySelector('#modalEvent').querySelector('.form').setAttribute('data-function', 'edit')
+                modalEvent.classList.add('active')
+            })
+            .catch(err => console.error(err));
+    }
+
+    function addEvent(data) {
+        const formData = new FormData();
+        const event_cover = document.querySelector('#event_cover');
+        const event_gallery = document.querySelector('#event_gallery');
+
+        formData.append('data', JSON.stringify(data))
+        formData.append('cover', event_cover.files[0])
+        for (let i = 0; i < event_gallery.files.length; i++) {
+            formData.append('gallery', event_gallery.files[i])
         }
+
         fetch("/addEvent", {
+            method: "POST",
+            body: formData,
+        })
+            .then(res => res.text())
+            .then(txt => {
+                getRepertoire('Repertoire')
+                alert(txt);
+            })
+            .catch(err => console.error(err));
+    }
+    function updateEvent(id, data) {
+        const formData = new FormData();
+        const event_cover = document.querySelector('#event_cover');
+        const event_gallery = document.querySelector('#event_gallery');
+
+        formData.append('data', JSON.stringify(data))
+        formData.append('cover', event_cover.files[0])
+        for (let i = 0; i < event_gallery.files.length; i++) {
+            formData.append('gallery', event_gallery.files[i])
+        }
+        fetch(`/updateEvent/${id}`, {
+            method: "PUT",
+            body: formData,
+        })
+            .then(res => res.text())
+            .then(txt => {
+                getRepertoire('Repertoire')
+                alert(txt);
+            })
+            .catch(err => console.error(err));
+    }
+    function deleteEvent(id) {
+        let confirmDelete = confirm('Вы действительно хоитите удалить данное мероприятие из репертуара?')
+        if (!confirmDelete) return
+        fetch(`/deleteEvent/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.text())
+            .then(txt => {
+                getRepertoire('Repertoire')
+                alert(txt);
+            })
+            .catch(err => console.error(err));
+    }
+
+    document.querySelector('#acceptModalEvent').addEventListener('click', (event) => {
+        event.preventDefault()
+        let data = {
+            event_title: document.forms.Event.elements.event_title.value,
+            event_subtitle: document.forms.Event.elements.event_subtitle.value,
+            event_duration: document.forms.Event.elements.event_duration.value,
+            event_rating: document.forms.Event.elements.event_rating.value,
+            event_pushka: document.forms.Event.elements.event_pushka.checked,
+            event_authors: document.forms.Event.elements.event_authors.value,
+            event_description_tiny: document.forms.Event.elements.event_description_tiny.value,
+            event_description: document.forms.Event.elements.event_description.value,
+        }
+        switch (document.querySelector('#modalEvent').querySelector('.form').getAttribute('data-function')) {
+            case 'create':
+                addEvent(data)
+                break;
+            case 'edit':
+                updateEvent(eventId, data)
+                break;
+
+            default:
+                break;
+        }
+
+        document.querySelector('.form').reset()
+        modalEvent.classList.remove('active')
+    })
+
+    /* АФИША */
+    function getEventsForPoster() {
+        fetch(`/getEventsForPoster`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => data = res.json())
+            .then(list => {
+                let eventsList = ``
+                list.forEach(event => {
+                    eventsList += `<option value="${event.event_id}">${event.event_title}</option>`
+                })
+                document.querySelector('#poster_event').innerHTML = eventsList
+
+            })
+            .catch(err => console.error(err));
+    }
+
+    function getPoster(id) {
+        fetch(`/getPoster/${id}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => data = res.json())
+            .then(poster => {
+                DateTime = new Date(poster.poster_datetime)
+                minutes = DateTime.getMinutes() < 10 ? `0${DateTime.getMinutes()}` : `${DateTime.getMinutes()}`
+                document.forms.Poster.elements.poster_event.value = poster.poster_event
+                document.forms.Poster.elements.poster_datetime.value = `${DateTime.getFullYear()}-${DateTime.getMonth() + 1}-${DateTime.getDate()}T${DateTime.getHours()}:${minutes}`
+                document.forms.Poster.elements.poster_price.value = poster.poster_price
+                document.forms.Poster.elements.poster_amount_tickets.value = poster.poster_amount_tickets
+                document.forms.Poster.elements.poster_link_on_kassy_ru.value = poster.poster_link_on_kassy_ru
+                posterId = poster.poster_id
+                document.querySelector('#modalPoster').querySelector('.form').setAttribute('data-function', 'edit')
+                modalPoster.classList.add('active')
+            })
+            .catch(err => console.error(err));
+    }
+
+    function addPoster(data) {
+        fetch("/addPoster", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -174,15 +357,66 @@
         })
             .then(res => res.text())
             .then(txt => {
+                getPoster('Poster')
                 alert(txt);
             })
             .catch(err => console.error(err));
     }
-    document.querySelector('#acceptModal').addEventListener('click', (event) => {
+
+    function updatePoster(id, data) {
+        fetch(`/updatePoster/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.text())
+            .then(txt => {
+                getPoster('Poster')
+                alert(txt);
+                document.querySelector('#modalPoster').querySelector('.form').setAttribute('data-function', 'create')
+            })
+            .catch(err => console.error(err));
+    }
+
+    function deletePoster(id) {
+        let confirmDelete = confirm('Вы действительно хоитите удалить данное мероприятие из афиши?')
+        if (!confirmDelete) return
+        fetch(`/deletePoster/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.text())
+            .then(txt => {
+                getPoster('Poster')
+                alert(txt);
+            })
+            .catch(err => console.error(err));
+    }
+
+    document.querySelector('#acceptModalPoster').addEventListener('click', (event) => {
         event.preventDefault()
-        addEvent()
+        let data = {
+            poster_event: document.forms.Poster.elements.poster_event.value,
+            poster_datetime: document.forms.Poster.elements.poster_datetime.value,
+            poster_price: document.forms.Poster.elements.poster_price.value,
+            poster_amount_tickets: document.forms.Poster.elements.poster_amount_tickets.value,
+            poster_link_on_kassy_ru: document.forms.Poster.elements.poster_link_on_kassy_ru.value
+        }
+        switch (document.querySelector('#modalPoster').querySelector('.form').getAttribute('data-function')) {
+            case 'create':
+                addPoster(data)
+                break;
+            case 'edit':
+                updatePoster(posterId, data)
+                break;
+
+            default:
+                break;
+        }
+
         document.querySelector('.form').reset()
-        modal.classList.remove('active')
+        modalPoster.classList.remove('active')
     })
 
 </script>

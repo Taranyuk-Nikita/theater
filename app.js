@@ -5,6 +5,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const logger = require('morgan');
+const fileUpload = require('express-fileupload');
+
 
 const indexRouter = require('./routes/index');
 const repertoireRouter = require('./routes/repertoire');
@@ -28,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use(indexRouter);
 app.use(repertoireRouter);

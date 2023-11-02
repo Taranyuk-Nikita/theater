@@ -20,14 +20,14 @@
     <body>
         <%- include('layouts/preloader') -%>
             <%- include('layouts/header') -%>
-                <main>
+                <main>                               
+                     <% if (poster.length > 1) { %>
                     <section class="slider">
                         <div class="slider__wrapper">
                             <div class="slider__items">
-                                <!--  -->
                                 <% poster.length < 4 ? counter = poster.length : counter = 4; %>
                                 <% for (let i = 0; i < counter; i++) { %>
-                                    <% let {poster_id, poster_datetime, event_id, event_title, event_subtitle, event_rating, event_description_tiny} = poster[i] %>
+                                    <% let {poster_id, poster_datetime, poster_link_on_kassy_ru, event_id, event_title, event_subtitle, event_rating, event_description_tiny, event_cover_num} = poster[i] %>
                                     <div class="slider__item">
                                         <div class="slider__item_inner">
                                             <span class="slider__event_title"><%= event_title %></span>
@@ -38,18 +38,19 @@
                                                     <span class="slider__event_date"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %> <%= poster_datetime.toLocaleTimeString('ru-RU', {hour: "numeric", minute: "numeric"}) %></span>
                                                     <span class="slider__event_rating"><%= event_rating %>+</span>
                                                 </span>
-                                                <a class="slider__event_learnmore" href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'>Купить билет</a>
+                                                <a class="slider__event_learnmore" href='<%= poster_link_on_kassy_ru %>'>Купить билет</a>
+                                                <!-- <a class="slider__event_learnmore" href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'>Купить билет</a> -->
                                             </span>
                                         </div>
-                                        <img src="/images/DSC06032.jpg" alt="">
+                                        <img src="/storage/<%= event_id %>/gallery-<%= event_cover_num %>_<%=event_id %>.jpg" alt="<%= event_title %>">
                                     </div>
                                 <% } %> 
-                                <!--  -->
                             </div>
                         </div>
                         <button class="slider__btn slider__btn_prev" href="#" role="button" data-slide="prev"></button>
                         <button class="slider__btn slider__btn_next" href="#" role="button" data-slide="next"></button>
                     </section>
+                    <% } %> 
                     <section class="poster">
                         <div class="poster__wrapper">
                             <div class="poster__title">АФИША</div>
@@ -57,7 +58,7 @@
                                 <div class="events__wrapper">
                                     <!--  -->
                                     <% if (poster.length) { %>
-                                        <% poster.forEach(({poster_id, poster_datetime, poster_price, poster_tickets_left, event_id, event_title, event_subtitle, event_rating, rating_description, event_pushka, event_description_tiny}) => { %>
+                                        <% poster.forEach(({poster_id, poster_datetime, poster_price, poster_tickets_left, poster_link_on_kassy_ru, event_id, event_title, event_subtitle, event_rating, rating_description, event_pushka, event_description_tiny}) => { %>
                                             <div class="event">
                                                 <div class="event_date">
                                                     <span class="event_day"><%= poster_datetime.toLocaleDateString('ru-RU', {month: "long", day: "numeric"}) %></span>
@@ -65,7 +66,7 @@
                                                 </div>
                                                 <div class="event_info">
                                                     <div class="event_cover">
-                                                        <img src="/images/Афиша - Музыка - душа кино.jpeg" alt="">
+                                                        <img src="/storage/<%= event_id %>/cover_<%= event_id %>.jpg" alt="<%= event_title %>">
                                                     </div>
                                                     <div class="event_about">   
                                                         <h3 class="event_title"><%= event_title %></h3>
@@ -78,7 +79,7 @@
                                                         </div>
                                                         <p class="event_description"><%= event_description_tiny %></p>
                                                         <div class="event_ticket_info">
-                                                            <div class="event_ticket_amount">
+                                                            <div class="event_ticket_amount" style="display: none;">
                                                                 <span>Билетов в наличии: </span>
                                                                 <span><nobr><%= poster_tickets_left %> шт.</nobr></span>
                                                             </div>
@@ -89,7 +90,8 @@
                                                         </div>
                                                         <div class="event_btns">
                                                             <button class="event_learnmore" onclick="location.href='/event/<%= event_id %>'">Подробнее</button>
-                                                            <button class="event_learnmore" onclick="location.href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'">Купить билет</button>
+                                                            <button class="event_learnmore" onclick="location.href='<%= poster_link_on_kassy_ru %>'">Купить билет</button>
+                                                            <!-- <button class="event_learnmore" onclick="location.href='/buyticket?event=<%= event_id %>&poster=<%= poster_id %>'">Купить билет</button> -->
                                                         </div>
                                                     </div>
                                                 </div>

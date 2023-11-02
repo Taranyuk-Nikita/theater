@@ -8,6 +8,11 @@ const Models = require('../models')
 router.get('/', async function (req, res, next) {
   const title = "Афиша"
   let event;
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+  }
   const addEventInfo = async (poster) => {
     for (let i = 0; i < poster.length; i++) {
       event = await Models.Events.findOne({
@@ -26,6 +31,7 @@ router.get('/', async function (req, res, next) {
       poster[i].event_rating = poster[i].event_rating.dataValues.rating_title
       poster[i].event_pushka = event.event_pushka
       poster[i].event_description_tiny = event.event_description_tiny
+      poster[i].event_cover_num = getRandomIntInclusive(0, 9)
     }
     return poster
   }
