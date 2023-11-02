@@ -1,9 +1,9 @@
 const   jwt = require('jsonwebtoken'),
         dotenv = require('dotenv')
 
-const   jwtKey = "YOUR-SECRET-KEY",
-        jwtIss = "YOUR-NAME",
-        jwtAud = "site.com",
+const   jwtKey = process.env.jwt_key || "3a7218b69971a194900156d626de22ff7c473ad552359ac4d2ecf02c479ff941bf5f95464cab01300080de73227dfdc1aee7011887e318695f70d44fc1b5b4145ea324d250b183277d61f1923fac69f828f5e083eb3795c40c443f60b6a0b8c8cc115ff67209c85ea1060d716904fc7c693ebe4f18d87e7ac57b82f7bafff278",
+        jwtIss = process.env.jwt_iss || "irkpo",
+        jwtAud = process.env.jwt_aud || "site.com",
         jwtAlgo = "HS512";        
 
 dotenv.config()

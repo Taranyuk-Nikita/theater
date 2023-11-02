@@ -1,0 +1,1 @@
+return console.log(require('crypto').randomBytes(256).toString('hex'))

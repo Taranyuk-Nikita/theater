@@ -36,6 +36,8 @@ const createDB = async () => {
         timezone: '+08:00',
         dialect: process.env.SQLserver_dialect,
     }).query(`CREATE DATABASE IF NOT EXISTS ${db_name};`)
+//  Раскоментировать строку ниже и удалить строку выше для MSSQL 
+//  }).query(`IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = '${db_name}') BEGIN CREATE DATABASE [${db_name}] END`)
 }
 // Создание таблиц
 const insertTables = async () => {

@@ -1,10 +1,12 @@
 {
   "name": "collage-teather",
-  "version": "0.0.7a",
+  "version": "0.0.7b",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dbinit": "node database/dbinit"
+    "dbinit": "node database/dbinit",
+    "dbcheck": "node database/checkConnect",
+    "gentoken": "node controllers/genToken"
   },
   "author": "Taranyuk Nikita",
   "license": "ISC",
